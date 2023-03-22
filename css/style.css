@@ -1,0 +1,2159 @@
+@charset "utf-8";
+body, html {
+        font-family: 'Roboto', sans-serif;
+        text-rendering: optimizeLegibility !important;
+        -webkit-font-smoothing: antialiased !important;
+        color: #666;
+        font-weight: 300;
+        margin-top: 5px;
+}
+h2 {
+        margin: 0 0 20px 0;
+        font-weight: 300;
+        font-size: 22px;
+        color: #444;
+}
+sup {
+         font-size: 11px;
+}
+input[type=number] {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  margin: 0;
+}
+.main {
+      width: 1280px;
+      height: auto;
+      margin-left: auto; /* Margin Auto zentriert die Seite */
+      margin-right: auto;
+}
+/* Unsichtbares DIV mit Inhalten für PDF-Ausdruck --------------------------------------------------------*/
+#pdfvalues {
+	display: none;
+}
+/* Menü rechter Bildschirmrand ---------------------------------------------------------------------------*/
+.menuright {
+	position: fixed;	
+	right: 0;
+	margin: 150px 0 0 0;
+	background-color: #87af2b;
+	border: 1px solid lightgrey;
+}
+/* Grid Überschrift + Refresh-Button ---------------------------------------------------------------------*/
+.projekt {
+	grid-area: links;
+}
+.refreshbutton {
+	grid-area: mitte;
+}
+.top {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-areas:
+			'links mitte';
+	padding: 0 0 5px 0;
+}
+/* Grid Hallenauswahl ---------------------------------------------------------------------*/
+.grid1_header{
+display: grid;
+grid-template-columns: auto;
+text-align: center;
+font-weight: bold;
+background-color: #87af2b;
+color: white;
+height: 30px;
+padding: 12px 0 0;
+}
+.grid1_data {
+display: grid;
+grid-template-columns: auto auto auto auto auto;
+grid-gap: 5px;
+background-color: white;
+margin: 5px 0 0 0;
+width: 100%;
+}
+.grid1_data > div {
+text-align: center;
+height: auto;
+padding: 10px 0 10px 0;
+font-size: 14px;
+border: 1px solid darkgrey;
+}
+input[type="checkbox"] {
+  position: absolute;
+  left: -15px;
+}
+input[type="checkbox"] + label {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+}
+input[type="checkbox"] + label:before {
+  width: 30px;
+  height: 14px;
+  border-radius: 25px;
+  border: 2px solid #ddd;
+  background-color: #EEE;
+  content: "";
+  margin-right: 10px;
+  transition: background-color 0.5s linear;
+}
+input[type="checkbox"] + label:after {
+  width: 14px;
+  height: 14px;
+  border-radius: 25px;
+  background-color: #fff;
+  content: "";
+  transition: margin 0.1s linear;
+  box-shadow: 0px 0px 5px #aaa;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+}
+input[type="checkbox"]:checked + label:before {
+  background-color: #87af2b;
+}
+input[type="checkbox"]:checked + label:after {
+  margin: 0 0 0 20px;
+}
+/* Grid Hallendaten ---------------------------------------------------------------------*/
+.grid2_header{
+display: grid;
+grid-template-columns: auto;
+text-align: center;
+font-weight: bold;
+background-color: #87af2b;
+color: white;
+height: 30px;
+padding: 12px 0 0;
+}
+.grid2_data {
+display: grid;
+grid-template-columns: auto auto auto auto;
+grid-gap: 1px;
+padding: 0;
+margin-top: 10px;
+height: 75%;
+}
+.grid2 {
+border: 1px solid grey;
+margin-top: 5px;
+}
+.grid2 > div {
+font-size: 13px;
+padding-left: 5px;
+}
+.grid2 > div input {
+width: 72%;
+font-size: 13px;
+color: #666;
+text-align: right;
+padding: 0;
+border: none;
+}
+.grid2 > div input:focus {
+      outline: none;
+}
+/* Grid Verkaufbox für Angaben zur Investition ---------------------------------------------------------------------*/
+.verkauswtext{
+	gid-area: vkauswtext;
+	font-weight: bold;
+}
+.verkausw{
+grid-area: vkausw;
+font-weight: bold;
+margin-bottom: 10px;
+padding-right: 50px;
+}
+.verkaufjahresliderbox{
+grid-area: vkslider;
+visibility: hidden;
+}
+.verkaufsteuersliderbox{
+grid-area: vkstslider;
+display: none;
+}
+.verkaufeksliderbox{
+grid-area: vkekslider;
+display: none;
+}
+.verkaufzinssliderbox{
+grid-area: vkzinsslider;
+display: none;
+}
+.verkauftilgsliderbox{
+grid-area: vktilgslider;
+display: none;
+}
+.grid1_vkheader{
+grid-area: vkheaderpreis;
+display: none;
+grid-template-columns: auto;
+text-align: center;
+font-size: 12px;
+font-weight: bold;
+background-color: #87af2b;
+color: white;
+height: 20px;
+margin: 5px 0 5px -10px;
+padding: 5px 0 0 0;
+width: 100.5%;
+}
+.grid1_vk {
+grid-area: vkpreisdata;
+display: grid;
+grid-template-columns: 36% 33% 30%;
+margin: 0;
+padding-top: 5px;
+}
+.verkaufbox {
+display: grid;
+grid-template-columns: 30% 20% 20% 30%;
+grid-template-areas:
+         'vkauswtext vkausw vkslider vkslider'
+		 'vkstslider vkstslider vkekslider vkekslider'
+		 'vkzinsslider vkzinsslider vktilgslider vktilgslider'
+		 'vkheaderpreis vkheaderpreis vkheaderpreis vkheaderpreis'
+		 'vkpreisdata vkpreisdata vkpreisdata vkpreisdata';         
+grid-gap: 2px;
+padding: 0;
+margin-top: 5px;
+}
+/* Grid Angaben zur Investition ---------------------------------------------------------------------*/
+.findaten{
+grid-area: header;
+text-align: center;
+color: white;
+font-weight: bold;
+background-color: #87af2b;
+height: 30px;
+padding: 12px 0 0 0;
+margin: 0 0 10px 0;
+}
+.kvmonsliderbox{
+grid-area: grid3_1;
+}
+.steuersatzsliderbox{
+grid-area: grid3_2;
+}
+.eksliderbox{
+grid-area: grid3_3;
+}
+.zinssliderbox{
+grid-area: grid3_4;
+}
+.tilgsliderbox{
+grid-area: grid3_5;
+}
+.darllzsliderbox{
+grid-area: grid3_6;
+}
+.mietemonsliderbox{
+grid-area: grid3_7;
+}
+.mietsteigsliderbox{
+grid-area: grid3_8;
+display: none;
+}
+.einspeissatzsliderbox{
+grid-area: grid3_9;
+}
+.sonderafasliderbox{
+grid-area: grid3_10;
+}
+.iabausw{
+grid-area: grid3_11;
+display: table;
+color: white;
+font-weight: bold;
+background-color: #87af2b;
+height: 30px;
+width: 91%;
+padding: 12px 14px 0 0;
+}
+.iabhoehesliderbox{
+grid-area: grid3_12;
+visibility: hidden;
+}
+.verkaufbox{
+grid-area: grid3_13;
+margin: 10px 0 10px 0;
+padding: 10px 0 0 0;
+border-top: 1px solid grey;
+width: 99.6%;
+}
+.grid3 {
+display: grid;
+grid-template-columns: 10% 10% 10% 10% 10% 9% 10% 10% 10% 10%;
+grid-template-areas:
+         'header header header header header header header grid3_11 grid3_11 grid3_11'         
+         'grid3_7 grid3_9 grid3_2 grid3_3 grid3_4 grid3_5 grid3_6 grid3_1 grid3_10 grid3_12'
+         'grid3_7 grid3_9 grid3_2 grid3_3 grid3_4 grid3_5 grid3_6 grid3_1 grid3_10 grid3_12'
+         'grid3_7 grid3_9 grid3_2 grid3_3 grid3_4 grid3_5 grid3_6 grid3_1 grid3_10 grid3_12'
+         'grid3_7 grid3_9 grid3_2 grid3_3 grid3_4 grid3_5 grid3_6 grid3_1 grid3_10 grid3_12'
+         'grid3_7 grid3_9 grid3_2 grid3_3 grid3_4 grid3_5 grid3_6 grid3_1 grid3_10 grid3_12'
+		 'grid3_13 grid3_13 grid3_13 grid3_13 grid3_13 grid3_13 grid3_13 grid3_13 grid3_13 grid3_13';
+grid-gap: 0;
+background-color: white;
+margin: 0;
+padding: 0 0 0 0;
+width: 100%;
+border: 1px solid grey;
+}
+.grid3 > div {
+font-size: 14px;
+padding-left: 10px;
+text-align: center;
+}
+.grid3 > div input {
+font-size: 14px;
+color: #666;
+text-align: right;
+padding: 0;
+border: none;
+}
+.iabausw > span {
+display: table-cell;
+vertical-align: middle;
+padding: 0 40px 12px 0;
+}
+.verkausw > span {
+display: table-cell;
+vertical-align: middle;
+padding-bottom: 12px;
+padding-right: 3px;
+}
+/* Grid charts ---------------------------------------------------------------------*/
+#curve_chart1{
+height: 230px;
+border: 1px solid lightgrey;
+}
+#curve_chart2{
+height: 230px;
+border: 1px solid lightgrey;
+}
+#curve_chart3{
+height: 230px;
+border: 1px solid lightgrey;
+}
+/* Grid Zusammenfassung ---------------------------------------------------------------------*/
+.zusammenfasstext{
+grid-area: header;
+text-align: center;
+font-weight: bold;
+background-color: #87af2b;
+color: white;
+height: 38px;
+font-size: 14px;
+padding: 4px 0 0;
+margin-bottom: 0;
+}
+.zusamdettext{
+grid-area: grid7;
+font-size: 14px;
+}
+.grid7 {
+display: grid;
+grid-template-areas:
+         'header'
+         'grid7';
+grid-gap: 0;
+background-color: white;
+border: 1px solid grey;
+margin: 5px 0 0 0;
+}
+.grid7 > div {
+text-align: center;
+}
+.grid7 > div input {
+font-size: 12px;
+width: 60%;
+color: #666;
+text-align: right;
+border: none;
+margin: 0;
+padding: 0;
+}
+/* Grid Tabellen oben mit Schieberegler -------------------------------------------------------------*/
+.grid1 {
+grid-area: hallenauswahl;
+}
+.grid2 {
+grid-area: hallendaten;
+}
+.grid3 {
+grid-area: investition;
+}
+.grid7 {
+grid-area: zusammenfass;
+}
+
+.gridoben {
+display: grid;
+grid-template-columns: 35.5% 16.5% 48%;
+grid-gap: 0 2px;
+grid-template-areas:
+         'hallenauswahl hallenauswahl investition'
+         'hallendaten zusammenfass investition';
+width: 100.2%;
+background-color: white;
+margin: -15px 0 0 0;
+}
+/* Grid Liquidität nach Steuern pro Jahr Div 1-----------------------------------------------------------*/
+.liquinachstdiv1 {
+display: grid;
+grid-template-columns: auto auto;
+grid-gap: 2px;
+padding: 0;
+margin: 0;
+}
+.liquinachstdiv1 > div {
+font-size: 13px;
+padding-left: 5px;
+color: darkblue;
+}
+.liquinachstdiv1 > div input {
+width: 70%;
+font-size: 13px;
+color: #666;
+text-align: right;
+padding: 0;
+border: none;
+background-color: #ecf5eb;
+}
+/* Grid Liquidität nach Steuern pro Jahr Div 2-----------------------------------------------------------*/
+.liquinachstdiv2 {
+display: grid;
+grid-template-columns: auto auto;
+grid-gap: 2px;
+padding: 0;
+margin: 0;
+}
+.liquinachstdiv2 > div {
+font-size: 13px;
+margin-left: 0;
+padding-left: 5px;
+color: darkblue;
+}
+.liquinachstdiv2 > div input {
+width: 70%;
+font-size: 13px;
+color: #666;
+text-align: right;
+padding: 0;
+border: none;
+}
+/* Grid Liquidität nach Steuern pro Jahr Div 3-----------------------------------------------------------*/
+.liquinachstdiv3 {
+display: grid;
+grid-template-columns: auto auto;
+grid-gap: 2px;
+padding: 0;
+margin: 0;
+}
+.liquinachstdiv3 > div {
+font-size: 13px;
+padding-left: 5px;
+color: darkblue;
+}
+.liquinachstdiv3 > div input {
+width: 70%;
+font-size: 13px;
+color: #666;
+text-align: right;
+padding: 0;
+border: none;
+background-color: #ecf5eb;
+}
+/* Grid Liquidität nach Steuern pro Jahr Div 4-----------------------------------------------------------*/
+.liquinachstdiv4 {
+display: grid;
+grid-template-columns: auto auto;
+grid-gap: 2px;
+padding: 0;
+margin: 0;
+}
+.liquinachstdiv4 > div {
+font-size: 13px;
+margin-left: 0;
+padding-left: 5px;
+color: darkblue;
+}
+.liquinachstdiv4 > div input {
+width: 70%;
+font-size: 13px;
+color: #666;
+text-align: right;
+padding: 0;
+border: none;
+}
+/* Grid Liquidität nach Steuern pro Jahr Div 5-----------------------------------------------------------*/
+.liquinachstdiv5 {
+display: grid;
+grid-template-columns: auto auto;
+grid-gap: 2px;
+padding: 0;
+margin: 0;
+}
+.liquinachstdiv5 > div {
+font-size: 13px;
+padding-left: 5px;
+color: darkblue;
+}
+.liquinachstdiv5 > div input {
+width: 70%;
+font-size: 13px;
+color: #666;
+text-align: right;
+padding: 0;
+border: none;
+background-color: #ecf5eb;
+}
+/* Grid Liquidität nach Steuern pro Jahr Div 6-----------------------------------------------------------*/
+.liquinachstdiv6 {
+display: grid;
+grid-template-columns: auto auto;
+grid-gap: 2px;
+padding: 0;
+margin: 0;
+}
+.liquinachstdiv6 > div {
+font-size: 13px;
+margin-left: 0;
+padding-left: 5px;
+color: darkblue;
+}
+.liquinachstdiv6 > div input {
+width: 70%;
+font-size: 13px;
+text-align: right;
+padding: 0;
+border: none;
+}
+/* Grid Liquidität nach Steuern pro Monat -----------------------------------------------------------*/
+.liquinachsttext{
+grid-area: header;
+text-align: center;
+font-weight: bold;
+background-color: #87af2b;
+color: white;
+height: 30px;
+padding: 12px 0 0;
+width: 99.5%;
+}
+.liquinachstdiv1{
+grid-area: grid12_1;
+padding: 5px 0 5px 0;
+margin: 0;
+background-color: #ecf5eb;
+}
+.liquinachstdiv2{
+grid-area: grid12_2;
+padding: 5px 0 5px 0;
+margin: 0;
+}
+.liquinachstdiv3{
+grid-area: grid12_3;
+padding: 5px 0 5px 0;
+margin: 0;
+background-color: #ecf5eb;
+}
+.liquinachstdiv4{
+grid-area: grid12_4;
+padding: 5px 0 5px 0;
+margin: 0;
+}
+.liquinachstdiv5{
+grid-area: grid12_5;
+padding: 5px 0 5px 0;
+margin: 0;
+background-color: #ecf5eb;
+}
+.liquinachstdiv6{
+grid-area: grid12_6;
+padding: 5px 0 5px 0;
+margin: 0;
+}
+.grid12 {
+display: grid;
+grid-template-columns: 18% 17% 17% 18% 17% 13.5%;
+grid-template-areas:
+         'header header header header header header'
+         'grid12_1 grid12_2 grid12_3 grid12_4 grid12_5 grid12_6';
+grid-gap: 0;
+padding: 0;
+margin-top: 5px;
+border: 1px solid grey;
+width: 100.5%;
+}
+.grid12 > div {
+font-size: 14px;
+padding-left: 0;
+}
+.grid12 > div input {
+color: darkblue;
+}
+.grid12 > div input:focus {
+      outline: none;
+}
+/* Grid Charts ------------------------------------------------------------------------------------*/
+.grid9 {
+grid-area: chart1;
+}
+.grid10 {
+grid-area: chart2;
+}
+.grid11 {
+grid-area: chart3;
+}
+.gridchart {
+display: grid;
+grid-template-columns: 33.3% 33.3% 33.3%;
+grid-gap: 0 5px;
+grid-template-areas:
+         'chart1 chart2 chart3';
+width: 100%;
+background-color: white;
+margin: 5px 0 0;
+}
+/* Grid Überschussbetrachtung ---------------------------------------------------------------------*/
+.einnahmen{
+grid-area: header1;
+text-align: left;
+font-weight: bold;
+background-color: #87af2b;
+color: white;
+height: 30px;
+padding: 15px 0 0;
+}
+.einnahmmtl{
+grid-area: header1_1;
+text-align: center;
+background-color: #87af2b;
+color: white;
+height: 30px;
+padding: 15px 0 0;
+}
+.einnahmpa{
+grid-area: header1_2;
+text-align: center;
+background-color: #87af2b;
+color: white;
+height: 30px;
+padding: 15px 0 0;
+}
+.einnahm30{
+grid-area: header1_3;
+text-align: center;
+background-color: #87af2b;
+color: white;
+height: 38px;
+padding: 7px 0 0;
+}
+.ausgaben{
+grid-area: header2;
+text-align: left;
+font-weight: bold;
+background-color: #87af2b;
+color: white;
+height: 30px;
+padding: 15px 0 0;
+border-left: 1px solid white;
+}
+.ausgmtl{
+grid-area: header2_1;
+text-align: center;
+background-color: #87af2b;
+color: white;
+height: 30px;
+padding: 15px 0 0;
+}
+.ausgpa{
+grid-area: header2_2;
+text-align: center;
+background-color: #87af2b;
+color: white;
+height: 30px;
+padding: 15px 0 0;
+}
+.ausg30{
+grid-area: header2_3;
+text-align: center;
+background-color: #87af2b;
+color: white;
+height: 38px;
+padding: 7px 0 0;
+}
+.mietetext{
+grid-area: grid4_1;
+}
+.mietemtl{
+grid-area: grid4_1_1;
+}
+.mietepa{
+grid-area: grid4_1_2;
+}
+.miete30{
+grid-area: grid4_1_3;
+}
+.einspeispvtext{
+grid-area: grid4_2;
+}
+.einspeispvmtl{
+grid-area: grid4_2_1;
+}
+.einspeispvpa{
+grid-area: grid4_2_2;
+}
+.einspeispv30{
+grid-area: grid4_2_3;
+}
+.pvnebentext{
+grid-area: grid4_3;
+border-left: 1px solid #87af2b;
+}
+.pvnebenmtl{
+grid-area: grid4_3_1;
+}
+.pvnebenpa{
+grid-area: grid4_3_2;
+}
+.pvneben30{
+grid-area: grid4_3_3;
+}
+.kalkeintext{
+grid-area: grid4_4;
+border-top: 1px solid grey;
+}
+.kalkeinmtl{
+grid-area: grid4_4_1;
+border-top: 1px solid grey;
+}
+.kalkeinpa{
+grid-area: grid4_4_2;
+border-top: 1px solid grey;
+}
+.kalkein30{
+grid-area: grid4_4_3;
+border-top: 1px solid grey;
+}
+.darlratetext{
+grid-area: grid4_5;
+border-left: 1px solid #87af2b;
+}
+.darlratemtl{
+grid-area: grid4_5_1;
+}
+.darlratepa{
+grid-area: grid4_5_2;
+}
+.darlrate30{
+grid-area: grid4_5_3;
+}
+.kalkaustext{
+grid-area: grid4_6;
+border-top: 1px solid grey;
+border-left: 1px solid #87af2b;
+}
+.kalkausmtl{
+grid-area: grid4_6_1;
+border-top: 1px solid grey;
+}
+.kalkauspa{
+grid-area: grid4_6_2;
+border-top: 1px solid grey;
+}
+.kalkaus30{
+grid-area: grid4_6_3;
+border-top: 1px solid grey;
+}
+.steuerausw{
+grid-area: header3;
+text-align: center;
+height: 30px;
+padding: 15px 0 0;
+border-top: 1px solid #87af2b;
+border-bottom: 1px solid #87af2b;
+}
+.steuervorttext{
+grid-area: grid4_7;
+}
+.steuervortmtl{
+grid-area: grid4_7_1;
+}
+.steuervortpa{
+grid-area: grid4_7_2;
+}
+.steuervort30{
+grid-area: grid4_7_3;
+}
+.steuernachttext{
+grid-area: grid4_8;
+border-left: 1px solid #87af2b;
+}
+.steuernachtmtl{
+grid-area: grid4_8_1;
+}
+.steuernachtpa{
+grid-area: grid4_8_2;
+}
+.steuernacht30{
+grid-area: grid4_8_3;
+}
+.grid4 {
+display: grid;
+grid-template-areas:
+         'header1 header1_1 header1_2 header1_3 header2 header2_1 header2_2 header2_3'
+         'grid4_1 grid4_1_1 grid4_1_2 grid4_1_3 grid4_3 grid4_3_1 grid4_3_2 grid4_3_3'
+         'grid4_2 grid4_2_1 grid4_2_2 grid4_2_3 grid4_5 grid4_5_1 grid4_5_2 grid4_5_3'
+         'grid4_4 grid4_4_1 grid4_4_2 grid4_4_3 grid4_6 grid4_6_1 grid4_6_2 grid4_6_3'
+         'header3 header3 header3 header3 header3 header3 header3 header3'
+         'grid4_7 grid4_7_1 grid4_7_2 grid4_7_3 grid4_8 grid4_8_1 grid4_8_2 grid4_8_3';
+grid-gap: 0;
+margin-top: 5px;
+border: 1px solid grey;
+}
+.grid4 > div {
+font-size: 14px;
+padding-left: 10px;
+}
+.grid4 > div input {
+font-size: 14px;
+width: 70%;
+color: #666;
+text-align: right;
+border: none;
+margin: 0;
+padding: 0;
+}
+/* Grid Überschussbetrachtung ------------------------------------------------------------------------*/
+grid4 {
+grid-area: links;
+}
+.grid4_7 {
+display: grid;
+grid-gap: 0 5px;
+grid-template-areas:
+         'links';
+background-color: white;
+margin: 0;
+width: 100.7%;
+}
+/* Grid Zahlen aus Tool ---------------------------------------------------------------------*/
+.grid6header{
+grid-area: header;
+text-align: center;
+background-color: silver;
+height: 30px;
+padding: 15px 0 0;
+}
+.annu1daten{
+grid-area: grid6_1_1;
+}
+.annudaten{
+grid-area: grid6_1;
+}
+.darlverl5{
+grid-area: grid6_2;
+}
+.zinsverl5{
+grid-area: grid6_3;
+}
+.tilgverl5{
+grid-area: grid6_4;
+}
+.darlverl10{
+grid-area: grid6_5;
+}
+.zinsverl10{
+grid-area: grid6_6;
+}
+.tilgverl10{
+grid-area: grid6_7;
+}
+.liquivorst1{
+grid-area: grid6_8;
+}
+.liquivorst10{
+grid-area: grid6_9;
+}
+.umssteuerrel1{
+grid-area: grid6_10;
+}
+.umssteuerrel10{
+grid-area: grid6_11;
+}
+.afapvausg1{
+grid-area: grid6_12;
+}
+.afapvausg2{
+grid-area: grid6_13;
+}
+.afapvausg3{
+grid-area: grid6_14;
+}
+.afapvausg4{
+grid-area: grid6_15;
+}
+.afapvausg5{
+grid-area: grid6_16;
+}
+.afapvausg6{
+grid-area: grid6_17;
+}
+.afahalleausg1{
+grid-area: grid6_18;
+}
+.afahalleausg5{
+grid-area: grid6_19;
+}
+.iabpv{
+grid-area: grid6_20;
+}
+.steueriab{
+grid-area: grid6_21;
+}
+.steuer1{
+grid-area: grid6_22;
+}
+.steuer2{
+grid-area: grid6_23;
+}
+.darlverl20{
+grid-area: grid6_24;
+}
+.zinsverl20{
+grid-area: grid6_25;
+}
+.tilgverl20{
+grid-area: grid6_26;
+}
+.darlverl30{
+grid-area: grid6_27;
+}
+.zinsverl30{
+grid-area: grid6_28;
+}
+.tilgverl30{
+grid-area: grid6_29;
+}
+.umssteuerrel2{
+grid-area: grid6_30;
+}
+.umssteuerrel5{
+grid-area: grid6_31;
+}
+.umssteuerrel20{
+grid-area: grid6_32;
+}
+.umssteuerrel30{
+grid-area: grid6_33;
+}
+.steuer5{
+grid-area: grid6_34;
+}
+.steuer10{
+grid-area: grid6_35;
+}
+.steuer20{
+grid-area: grid6_36;
+}
+.steuer30{
+grid-area: grid6_37;
+}
+.liquinachst1{
+grid-area: grid6_38;
+}
+.liquinachst2{
+grid-area: grid6_39;
+}
+.liquinachst5{
+grid-area: grid6_40;
+}
+.liquinachst11{
+grid-area: grid6_41;
+}
+.liquinachst21{
+grid-area: grid6_42;
+}
+.liquinachst30{
+grid-area: grid6_43;
+}
+.grid6 {
+display: grid;
+display: none;
+grid-template-columns: auto;
+grid-template-areas:
+         'header header header'
+         'grid6_1_1 grid6_8 grid6_18'
+         'grid6_1 grid6_9 grid6_19'
+         'grid6_2 grid6_10 grid6_20'
+         'grid6_5 grid6_30 grid6_12'
+         'grid6_24 grid6_31 grid6_13'
+         'grid6_27 grid6_11 grid6_14'
+         'grid6_3 grid6_32 grid6_15'
+         'grid6_4 grid6_33 grid6_16'
+         'grid6_6 grid6_21 grid6_17'
+         'grid6_7 grid6_22 grid6_38'
+         'grid6_25 grid6_23 grid6_39'
+         'grid6_26 grid6_34 grid6_40'
+         'grid6_28 grid6_35 grid6_41'
+         'grid6_29 grid6_36 grid6_42'
+         '. grid6_37 grid6_43';
+grid-gap: 10px;
+background-color: white;
+margin-top:0;
+padding: 0;
+width: 100.5%;
+border: 1px solid grey;
+}
+.grid6 > div {
+font-size: 16px;
+}
+/* Disclaimer ----------------------------------------------------------------------*/
+.disclaimer {
+	width: 99.7%;
+	border: 1px solid grey;	
+	padding: 5px;
+}
+.disclaimerheader {
+	font-size: 14px;
+	font-weight: bold;
+}
+.disclaimertext {
+	font-size: 12px;
+}
+/* Sliderboxen ---------------------------------------------------------------------*/
+.kvmonsliderbox{
+padding: 0 2px 0 3px;
+display: inline-block;
+width: 90%;
+}
+.kvmonsliderbox .slider1{
+height: 190px;
+width: 20px;
+display: inline-block;
+margin: 0 2px 0;
+padding-left: 20px;
+}
+.kvmonsliderbox .slider1 .sliderinput1{
+height: 5px;
+width: 180px;
+transform-origin: 90px 90px;
+transform: rotate(-90deg);
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.kvmonsliderbox .slider1 .sliderinput1::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.slidervalue1{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+}
+.kvmontext{
+align: center;
+font-size: 10px;
+}
+.kvmonsliderbox .slider1 .sliderinput1::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.kvmonsliderbox .slider1 .sliderinput1::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.kvmonsliderbox .slider1 .sliderinput1::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.steuersatzsliderbox{
+padding: 0 2px 0 3px;
+display: inline-block;
+border-radius: 20px;
+width: 100%;
+}
+.steuersatzsliderbox .slider2{
+height: 190px;
+width: 20px;
+display: inline-block;
+margin: 0 2px 0;
+padding-left: 14px;
+}
+.steuersatzsliderbox .slider2 .sliderinput2{
+height: 5px;
+width: 180px;
+transform-origin: 90px 90px;
+transform: rotate(-90deg);
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.slidervalue2{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+}
+.steuersatztext{
+align: center;
+font-size: 10px;
+}
+.steuersatzsliderbox .slider2 .sliderinput2::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.steuersatzsliderbox .slider2 .sliderinput2::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.steuersatzsliderbox .slider2 .sliderinput2::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.steuersatzsliderbox .slider2 .sliderinput2::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.eksliderbox{
+padding: 0 2px 0 3px;
+display: inline-block;
+width: 100%;
+}
+.eksliderbox .ekslider{
+height: 190px;
+width: 20px;
+display: inline-block;
+margin: 0 2px 0;
+padding-left: 14px;
+}
+.eksliderbox .ekslider .eksliderinput{
+height: 5px;
+width: 180px;
+transform-origin: 90px 90px;
+transform: rotate(-90deg);
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.ekslidervalue{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+white-space: nowrap;   /* Zeilenumbruch verhindern */
+}
+.ektext{
+align: center;
+font-size: 10px;
+}
+.eksliderbox .ekslider .eksliderinput::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.eksliderbox .ekslider .eksliderinput::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.eksliderbox .ekslider .eksliderinput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.eksliderbox .ekslider .eksliderinput::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.zinssliderbox{
+padding: 0 2px 0 3px;
+display: inline-block;
+width: 100%;
+}
+.zinssliderbox .slider3{
+height: 190px;
+width: 20px;
+display: inline-block;
+margin: 0 2px 0;
+padding-left: 14px;
+}
+.zinssliderbox .slider3 .sliderinput3{
+height: 5px;
+width: 180px;
+transform-origin: 90px 90px;
+transform: rotate(-90deg);
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.slidervalue3{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+}
+.zinstext{
+align: center;
+font-size: 10px;
+}
+.zinssliderbox .slider3 .sliderinput3::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.zinssliderbox .slider3 .sliderinput3::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.zinssliderbox .slider3 .sliderinput3::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.zinssliderbox .slider3 .sliderinput3::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.tilgsliderbox{
+padding: 0 2px 0 3px;
+display: inline-block;
+width: 100%;
+}
+.tilgsliderbox .slider4{
+height: 190px;
+width: 20px;
+display: inline-block;
+margin: 0 2px 0;
+padding-left: 14px;
+}
+.tilgsliderbox .slider4 .sliderinput4{
+height: 5px;
+width: 180px;
+transform-origin: 90px 90px;
+transform: rotate(-90deg);
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.slidervalue4{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+}
+.tilgtext{
+align: center;
+font-size: 10px;
+}
+.tilgsliderbox .slider4 .sliderinput4::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.tilgsliderbox .slider4 .sliderinput4::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.tilgsliderbox .slider4 .sliderinput4::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.tilgsliderbox .slider4 .sliderinput4::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.darllzsliderbox{
+padding: 0 2px 0 3px;
+display: inline-block;
+width: 100%;
+}
+.darllzsliderbox .slider5{
+height: 190px;
+width: 20px;
+display: inline-block;
+margin: 0 2px 0;
+padding-left: 14px;
+}
+.darllzsliderbox .slider5 .sliderinput5{
+height: 5px;
+width: 180px;
+transform-origin: 90px 90px;
+transform: rotate(-90deg);
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.slidervalue5{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+white-space: nowrap;   /* Zeilenumbruch verhindern */
+}
+.darllztext{
+align: center;
+font-size: 10px;
+}
+.darllzsliderbox .slider5 .sliderinput5::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.darllzsliderbox .slider5 .sliderinput5::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.darllzsliderbox .slider5 .sliderinput5::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.darllzsliderbox .slider5 .sliderinput5::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.mietemonsliderbox{
+padding: 0 2px 0 3px;
+display: inline-block;
+width: 100%;
+}
+.mietemonsliderbox .slider6{
+height: 190px;
+width: 20px;
+display: inline-block;
+margin: 0 2px 0;
+padding-left: 12px;
+}
+.mietemonsliderbox .slider6 .sliderinput6{
+height: 5px;
+width: 180px;
+transform-origin: 90px 90px;
+transform: rotate(-90deg);
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.slidervalue6{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+}
+.mietemontext{
+align: center;
+font-size: 10px;
+}
+.mietemonsliderbox .slider6 .sliderinput6::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.mietemonsliderbox .slider6 .sliderinput6::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.mietemonsliderbox .slider6 .sliderinput6::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.mietemonsliderbox .slider6 .sliderinput6::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.mietsteigsliderbox{
+padding: 0 2px 0 3px;
+display: inline-block;
+width: 100%;
+}
+.mietsteigsliderbox .slider7{
+height: 190px;
+width: 20px;
+display: inline-block;
+margin: 0 2px 0;
+padding-left: 12px;
+}
+.mietsteigsliderbox .slider7 .sliderinput7{
+height: 5px;
+width: 180px;
+transform-origin: 90px 90px;
+transform: rotate(-90deg);
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.slidervalue7{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+}
+.mietsteigtext{
+align: center;
+font-size: 10px;
+}
+.mietsteigsliderbox .slider7 .sliderinput7::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.mietsteigsliderbox .slider7 .sliderinput7::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.mietsteigsliderbox .slider7 .sliderinput7::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.mietsteigsliderbox .slider7 .sliderinput7::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.einspeissatzsliderbox{
+padding: 0 2px 0 3px;
+display: inline-block;
+border-radius: 20px;
+width: 100%;
+}
+.einspeissatzsliderbox .slider8{
+height: 190px;
+width: 20px;
+display: inline-block;
+margin: 0 2px 0;
+padding-left: 14px;
+}
+.einspeissatzsliderbox .slider8 .sliderinput8{
+height: 5px;
+width: 180px;
+transform-origin: 90px 90px;
+transform: rotate(-90deg);
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.slidervalue8{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+white-space: nowrap;   /* Zeilenumbruch verhindern */
+}
+.einspeissatztext{
+align: center;
+font-size: 10px;
+}
+.einspeissatzsliderbox .slider8 .sliderinput8::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.einspeissatzsliderbox .slider8 .sliderinput8::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.einspeissatzsliderbox .slider8 .sliderinput8::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.einspeissatzsliderbox .slider8 .sliderinput8::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.sonderafasliderbox{
+padding: 0 2px 0 3px;
+display: inline-block;
+border-radius: 20px;
+width: 100%;
+}
+.sonderafasliderbox .sonderafaslider{
+height: 190px;
+width: 20px;
+display: inline-block;
+margin: 0 2px 0;
+padding-left: 14px;
+}
+.sonderafasliderbox .sonderafaslider .sonderafasliderinput{
+height: 5px;
+width: 180px;
+transform-origin: 90px 90px;
+transform: rotate(-90deg);
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.sonderafaslidervalue{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+white-space: nowrap;   /* Zeilenumbruch verhindern */
+}
+.sonderafatext{
+align: center;
+font-size: 10px;
+}
+.sonderafasliderbox .sonderafaslider .sonderafasliderinput::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.sonderafasliderbox .sonderafaslider .sonderafasliderinput::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.sonderafasliderbox .sonderafaslider .sonderafasliderinput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.sonderafasliderbox .sonderafaslider .sonderafasliderinput::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.iabhoehesliderbox{
+padding: 0 2px 0 3px;
+display: inline-block;
+border-radius: 20px;
+width: 100%;
+}
+.iabhoehesliderbox .iabhoeheslider{
+height: 190px;
+width: 20px;
+display: inline-block;
+margin: 0 2px 0;
+padding-left: 14px;
+}
+.iabhoehesliderbox .iabhoeheslider .iabhoehesliderinput{
+height: 5px;
+width: 180px;
+transform-origin: 90px 90px;
+transform: rotate(-90deg);
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.iabhoeheslidervalue{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+white-space: nowrap;   /* Zeilenumbruch verhindern */
+}
+.iabhoehetext{
+align: center;
+font-size: 10px;
+}
+.iabhoehesliderbox .iabhoeheslider .iabhoehesliderinput::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.iabhoehesliderbox .iabhoeheslider .iabhoehesliderinput::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.iabhoehesliderbox .iabhoeheslider .iabhoehesliderinput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.iabhoehesliderbox .iabhoeheslider .iabhoehesliderinput::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.verkaufjahresliderbox{
+padding: 0 2px 0 3px;
+display: flex;
+border-radius: 20px;
+width: 100%;
+}
+.verkaufjahresliderbox .verkaufjahreslider{
+height: 20px;
+width: 140px;
+margin: 0 2px 0;
+padding-left: 14px;
+}
+.verkaufjahresliderbox .verkaufjahreslider .verkaufjahresliderinput{
+height: 5px;
+width: 140px;
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.verkaufjahreslidervalue{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+white-space: nowrap;   /* Zeilenumbruch verhindern */
+}
+.verkaufjahretext{
+align: center;
+font-size: 12px;
+}
+.verkaufjahresliderbox .verkaufjahreslider .verkaufjahresliderinput::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.verkaufjahresliderbox .verkaufjahreslider .verkaufjahresliderinput::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.verkaufjahresliderbox .verkaufjahreslider .verkaufjahresliderinput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.verkaufjahresliderbox .verkaufjahreslider .verkaufjahresliderinput::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.verkaufsteuersliderbox{
+padding: 0 2px 0 3px;
+display: flex;
+border-radius: 20px;
+width: 100%;
+}
+.verkaufsteuersliderbox .verkaufsteuerslider{
+height: 20px;
+width: 160px;
+margin: 0 2px 0;
+padding-left: 10px;
+}
+.verkaufsteuersliderbox .verkaufsteuerslider .verkaufsteuersliderinput{
+height: 5px;
+width: 160px;
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.verkaufsteuerslidervalue{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 50px;
+white-space: nowrap;   /* Zeilenumbruch verhindern */
+}
+.verkaufsteuertext{
+align: center;
+font-size: 12px;
+}
+.verkaufsteuersliderbox .verkaufsteuerslider .verkaufsteuersliderinput::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.verkaufsteuersliderbox .verkaufsteuerslider .verkaufsteuersliderinput::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.verkaufsteuersliderbox .verkaufsteuerslider .verkaufsteuersliderinput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.verkaufsteuersliderbox .verkaufsteuerslider .verkaufsteuersliderinput::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.verkaufeksliderbox{
+padding: 0 2px 0 3px;
+display: flex;
+border-radius: 20px;
+width: 100%;
+}
+.verkaufeksliderbox .verkaufekslider{
+height: 20px;
+width: 140px;
+margin: 0 2px 0;
+padding-left: 14px;
+}
+.verkaufeksliderbox .verkaufekslider .verkaufeksliderinput{
+height: 5px;
+width: 140px;
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.verkaufekslidervalue{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+white-space: nowrap;   /* Zeilenumbruch verhindern */
+}
+.verkaufektext{
+align: center;
+font-size: 12px;
+}
+.verkaufeksliderbox .verkaufekslider .verkaufeksliderinput::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.verkaufeksliderbox .verkaufekslider .verkaufeksliderinput::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.verkaufeksliderbox .verkaufekslider .verkaufeksliderinput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.verkaufeksliderbox .verkaufekslider .verkaufeksliderinput::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.verkaufzinssliderbox{
+padding: 0 2px 0 3px;
+display: flex;
+border-radius: 20px;
+width: 100%;
+}
+.verkaufzinssliderbox .verkaufzinsslider{
+height: 20px;
+width: 160px;
+margin: 0 2px 0;
+padding-left: 15px;
+}
+.verkaufzinssliderbox .verkaufzinsslider .verkaufzinssliderinput{
+height: 5px;
+width: 160px;
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.verkaufzinsslidervalue{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 60px;
+white-space: nowrap;   /* Zeilenumbruch verhindern */
+}
+.verkaufzinstext{
+align: center;
+font-size: 12px;
+}
+.verkaufzinssliderbox .verkaufzinsslider .verkaufzinssliderinput::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.verkaufzinssliderbox .verkaufzinsslider .verkaufzinssliderinput::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.verkaufzinssliderbox .verkaufzinsslider .verkaufzinssliderinput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.verkaufzinssliderbox .verkaufzinsslider .verkaufzinssliderinput::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.verkauftilgsliderbox{
+padding: 0 2px 0 3px;
+display: flex;
+border-radius: 20px;
+width: 100%;
+}
+.verkauftilgsliderbox .verkauftilgslider{
+height: 20px;
+width: 140px;
+margin: 0 2px 0;
+padding-left: 12px;
+}
+.verkauftilgsliderbox .verkauftilgslider .verkauftilgsliderinput{
+height: 5px;
+width: 140px;
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.verkauftilgslidervalue{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+white-space: nowrap;   /* Zeilenumbruch verhindern */
+}
+.verkauftilgtext{
+align: center;
+font-size: 12px;
+}
+.verkauftilgsliderbox .verkauftilgslider .verkauftilgsliderinput::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.verkauftilgsliderbox .verkauftilgslider .verkauftilgsliderinput::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.verkauftilgsliderbox .verkauftilgslider .verkauftilgsliderinput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.verkauftilgsliderbox .verkauftilgslider .verkauftilgsliderinput::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.verkaufgrdstpreissliderbox{
+padding: 0 2px 0 3px;
+display: flex;
+border-radius: 20px;
+width: auto;
+}
+.verkaufgrdstpreissliderbox .verkaufgrdstpreisslider{
+height: 20px;
+width: 90px;
+margin: 0 2px 0;
+padding-left: 2px;
+}
+.verkaufgrdstpreissliderbox .verkaufgrdstpreisslider .verkaufgrdstpreissliderinput{
+height: 5px;
+width: 90px;
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.verkaufgrdstpreisslidervalue{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+white-space: nowrap;   /* Zeilenumbruch verhindern */
+padding-left: 2px;
+}
+.verkaufgrdstpreistext{
+align: center;
+font-size: 12px;
+}
+.verkaufgrdstpreissliderbox .verkaufgrdstpreisslider .verkaufgrdstpreissliderinput::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.verkaufgrdstpreissliderbox .verkaufgrdstpreisslider .verkaufgrdstpreissliderinput::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.verkaufgrdstpreissliderbox .verkaufgrdstpreisslider .verkaufgrdstpreissliderinput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.verkaufgrdstpreissliderbox .verkaufgrdstpreisslider .verkaufgrdstpreissliderinput::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.verkaufhallepreissliderbox{
+padding: 0 2px 0 3px;
+display: flex;
+border-radius: 20px;
+width: auto;
+}
+.verkaufhallepreissliderbox .verkaufhallepreisslider{
+height: 20px;
+width: 90px;
+margin: 0 2px 0;
+padding-left: 2px;
+}
+.verkaufhallepreissliderbox .verkaufhallepreisslider .verkaufhallepreissliderinput{
+height: 5px;
+width: 90px;
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.verkaufhallepreisslidervalue{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+white-space: nowrap;   /* Zeilenumbruch verhindern */
+padding-left: 2px;
+}
+.verkaufhallepreistext{
+align: center;
+font-size: 12px;
+}
+.verkaufhallepreissliderbox .verkaufhallepreisslider .verkaufhallepreissliderinput::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.verkaufhallepreissliderbox .verkaufhallepreisslider .verkaufhallepreissliderinput::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.verkaufhallepreissliderbox .verkaufhallepreisslider .verkaufhallepreissliderinput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.verkaufhallepreissliderbox .verkaufhallepreisslider .verkaufhallepreissliderinput::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+.verkaufpvpreissliderbox{
+padding: 0 2px 0 3px;
+display: flex;
+border-radius: 20px;
+width: auto;
+}
+.verkaufpvpreissliderbox .verkaufpvpreisslider{
+height: 20px;
+width: 90px;
+margin: 0 2px 0;
+padding-left: 2px;
+}
+.verkaufpvpreissliderbox .verkaufpvpreisslider .verkaufpvpreissliderinput{
+height: 5px;
+width: 90px;
+-webkit-appearance: none;
+outline: none;
+background: #f2f2f2;
+border-radius: 25px;
+box-shadow: inset 0px 0px 4px rgba(0,0,0,0.2);
+}
+.verkaufpvpreisslidervalue{
+font-size: 12px;
+font-weight: 300;
+font-family: sans-serif;
+color: #666;
+text-align: center;
+width: 70px;
+white-space: nowrap;   /* Zeilenumbruch verhindern */
+padding-left: 2px;
+}
+.verkaufpvpreistext{
+align: center;
+font-size: 12px;
+}
+.verkaufpvpreissliderbox .verkaufpvpreisslider .verkaufpvpreissliderinput::-moz-range-progress{
+height: 5px;
+border-radius: 25px;
+background: #87af2b;
+}
+.verkaufpvpreissliderbox .verkaufpvpreisslider .verkaufpvpreissliderinput::-moz-range-thumb{
+height: 10px;
+width: 10px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+-webkit-appearance: none;
+}
+.verkaufpvpreissliderbox .verkaufpvpreisslider .verkaufpvpreissliderinput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+.verkaufpvpreissliderbox .verkaufpvpreisslider .verkaufpvpreissliderinput::-webkit-slider-thumb{
+height: 20px;
+width: 20px;
+border-radius: 50%;
+border: 4px solid #87af2b;
+background: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="Gewerbeparkt Giengen an der Brenz" content="width=device-width, initial-scale=1.0">
+<title>Gewerbepark Giengen an der Brenz</title>
+<link rel="stylesheet" type="text/css" href="css/style_giengen.css" />
+<script language="javascript" type="text/javascript" src="js/objektdaten_giengen.js"></script>
+<script language="javascript" type="text/javascript" src="js/iabselect.js"></script>
+<script language="javascript" type="text/javascript" src="js/verkselect.js"></script>
+<script language="javascript" type="text/javascript" src="js/buttonreset.js"></script>
+<script language="javascript" type="text/javascript" src="js/inputval.js"></script>
+<script language="javascript" type="text/javascript" src="js/hallencheck_giengen.js"></script>
+<script language="javascript" type="text/javascript" src="js/darlrechner_giengen.js?v=1"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="js/autoNumeric.min.js"></script>
+</head>
+<body>
+<div class="main">
+  <div class="top">  
+  <div class="logo" id="logo"><input type=image src="img/logo_herzkraft.png" alt="Home"></div>
+  <div class="projekt"><p>Gewerbepark Giengen an der Brenz</p></div>
+  <div class="home"><a href="https://herzkraft-invest.de/">STARTSEITE</a></div>
+  <div class="refreshbutton"><button type="button" onClick="reloadThePage()">Refresh!</button></div>
+  <script>
+	function reloadThePage(){
+    window.location.reload(true);
+	} 
+  </script>  
+  </div>
+<form id="kontaktformular" name="kontaktformular" action="expose_giengen.php" method="post" target="_blank" accept-charset="UTF-8">  
+  <input type="hidden" id="kpbuero" name="kpbuero" value="0" />
+  <input type="hidden" id="pngchart1" name="pngchart1" />
+  <input type="hidden" id="pngchart2" name="pngchart2" />
+  <input type="hidden" id="pngchart3" name="pngchart3" />
+  <input type="hidden" id="pdfheader" name="pdfheader" />  
+  <input type="hidden" id="keyfactsheader" name="keyfactsheader" />
+  <input type="hidden" id="ekpdf" name="ekpdf" />
+  <input type="hidden" id="chart3text1pdf" name="chart3text1pdf" />
+  <input type="hidden" id="chart3data1pdf" name="chart3data1pdf" />
+  <input type="hidden" id="chart2text1pdf" name="chart2text1pdf" />
+  <input type="hidden" id="chart2data1pdf" name="chart2data1pdf" />
+  <input type="hidden" id="liquitext1pdf" name="liquitext1pdf" />
+  <input type="hidden" id="liquidata1pdf" name="liquidata1pdf" />
+  <input type="hidden" id="reingewdata1pdf" name="reingewdata1pdf" />
+  <input type="hidden" id="renditepdf" name="renditepdf" />
+  <input type="hidden" id="ekprozpdf" name="ekprozpdf" />
+  <input type="hidden" id="zinsprozpdf" name="zinsprozpdf" />
+  <input type="hidden" id="zinswertpdf" name="zinswertpdf" />
+  <input type="hidden" id="tilgprozpdf" name="tilgprozpdf" />
+  <input type="hidden" id="tilgwertpdf" name="tilgwertpdf" />
+  <div id="pdfvalues"></div>
+<div class="menuright" id="menuright"><input type=image src="img/pdficon_transparent.jpg" alt="PDF" width="50" height="50" onmouseover="" style="cursor: pointer;"></div>
+<div class="gridoben">
+<div class="grid1">
+  <div class="grid1_header" id="grid1_header">
+  <div class="hallenauswahl">Hallenauswahl</div>
+  </div>
+  <div class="grid1_data" id="grid1_data">
+         <div class="hallennummer1">
+         <input type="checkbox" id="halle1" name="halle1" onclick="hallencheck();" />
+         <label for="halle1">Halle3</label>
+         </div>
+         <div class="hallennummer2">
+         <input type="checkbox" id="halle2" name="halle2" onclick="hallencheck();" />
+         <label for="halle2">Halle4</label>
+         </div>
+         <div class="hallennummer3">
+         <input type="checkbox" id="halle3" name="halle3" onclick="hallencheck();" />
+         <label for="halle3">Halle5</label>
+         </div>
+         <div class="hallennummer4">
+         <input type="checkbox" id="halle4" name="halle4" onclick="hallencheck();" />
+         <label for="halle4">Halle6</label>
+         </div>
+         <div class="hallennummer5">
+         <input type="checkbox" id="halle5" name="halle5" onclick="hallencheck();" />
+         <label for="halle5">Halle7</label>
+         </div>
+         <div class="hallennummer6">
+         <input type="checkbox" id="halle6" name="halle6" onclick="hallencheck();" />
+         <label for="halle6">Halle8</label>
+         </div>
+         <div class="hallennummer7">
+         <input type="checkbox" id="halle7" name="halle7" onclick="hallencheck();" />
+         <label for="halle7">Halle16</label>
+         </div>
+         <div class="hallennummer8">
+         <input type="checkbox" id="halle8" name="halle8" onclick="hallencheck();" />
+         <label for="halle8">Halle23</label>
+         </div>
+         <div class="hallennummer9">
+         <input type="checkbox" id="halle9" name="halle9" onclick="hallencheck();" />
+         <label for="halle9">Halle24</label>
+         </div>
+		 <div class="hallennummer10">
+         <input type="checkbox" id="halle10" name="halle10" onclick="hallencheck();" />
+         <label for="halle10">Halle25</label>
+         </div>
+		 <div class="hallennummer11">
+         <input type="checkbox" id="halle11" name="halle11" onclick="hallencheck();" />
+         <label for="halle11">Halle26</label>
+         </div>
+		 <div class="hallennummer12">
+         <input type="checkbox" id="halle12" name="halle12" onclick="hallencheck();" />
+         <label for="halle12">Halle27</label>
+         </div>
+		 <div class="hallennummer13">
+         <input type="checkbox" id="halle13" name="halle13" onclick="hallencheck();" />
+         <label for="halle13">Halle28</label>
+         </div>
+		 <div class="hallennummer14">
+         <input type="checkbox" id="halle14" name="halle14" onclick="hallencheck();" />
+         <label for="halle14">Halle29</label>
+         </div>
+		 <div class="hallennummer15">
+         <input type="checkbox" id="halle15" name="halle15" onclick="hallencheck();" />
+         <label for="halle15">Halle33</label>
+         </div>
+		 <div class="hallennummer16">
+         <input type="checkbox" id="halle16" name="halle16" onclick="hallencheck();" />
+         <label for="halle16">Halle34</label>
+         </div>
+	</div>
+</div>
+<div class="grid2">
+  <div class="grid2_header" id="grid2_header">
+  <div>Hallendaten</div>
+  </div>
+	<div class="grid2_data" id="grid2_data">
+         <div class="flaechetext">Hallenfl&auml;che:</div>
+         <div class="flaechedaten"><input type="text" id="hallenflaeche" name="hallenflaeche" value="0" readonly /><span> m<sup>2</sup></span></div>
+         <div class="investgestext">Gesamtinvestition:</div>
+         <div class="investgesdaten"><input type="text" id="gesamtinvest" name="gesamtinvest" value="0,00" readonly /><span> &#8364</span></div>
+		 <div class="leistungpvtext">PV-Leistung:</div>
+         <div class="leistungpvdaten"><input type="text" id="leistungpv" name="leistungpv" value="0" readonly /><span> kWp</span></div>
+		 <div class="nebenkostentext">Nebenkosten:</div>
+         <div class="nebenkostendaten"><input type="text" id="nk" name="nk" value="0,00" readonly /><span> &#8364</span></div>
+		 <div class="kpgrundtext">KP Grundst&uuml;ck:</div>
+         <div class="kpgrunddaten"><input type="text" id="kpgrundstueck" name="kpgrundstueck" value="0" readonly /></div>
+         <div class="ekaustext">Eigenkapital:</div>
+         <div class="ekausdaten"><input type="text" id="ekaus" name="ekaus" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="hallenkptext">KP Halle(n):</div>
+         <div class="hallenkpdaten"><input type="text" id="kphallen" name="kphallen" value="0" readonly /></div>
+		 <div class="finanzsumtext">Finanzierung:</div>
+         <div class="finanzsumdaten"><input type="text" id="finsum" name="finsum" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="pvkptext">KP Photovoltaik:</div>
+         <div class="pvkpdaten"><input type="text" id="kppv" name="kppv" value="0" readonly /><span> &#8364</span></div>
+	</div>
+</div>
+<div class="grid3">
+  <div class="findaten">Angaben zur Investition</div>
+         <div class="kvmonsliderbox">
+                         <div class="slidervalue1" id="slidervalue1">1.2023</div>
+                         <div class="slider1">
+                         <input class="sliderinput1" type="range" id="kvmon" name="kvmon" min="1" max="12" value="1" step="1">
+                         </div>
+                         <div class="kvmontext">Kaufvertrag<br/>im Monat</div>
+         </div>
+         <script>
+         const slideValuea = document.querySelector(".slidervalue1");
+         const inputSlidera = document.querySelector(".sliderinput1");
+         inputSlidera.oninput = (()=>{
+           let value = inputSlidera.value;
+         darlrechner();
+         slideValuea.textContent = value + ".2023";
+          });
+         </script>
+         <div class="steuersatzsliderbox">
+                         <div class="slidervalue2" id="slidervalue2">0 %</div>
+                         <div class="slider2">
+                         <input class="sliderinput2" type="range" id="steuersatzvalue" min="0" max="45" value="0" step="1">
+                         </div>
+                         <div class="steuersatztext">Steuersatz</div>
+         </div>
+         <script>
+         const slideValueb = document.querySelector(".slidervalue2");
+         const inputSliderb = document.querySelector(".sliderinput2");
+         inputSliderb.oninput = (()=>{
+           let value = inputSliderb.value;
+         slideValueb.textContent = value + " %";
+         darlrechner();
+          });
+         </script>
+         <div class="eksliderbox">
+                         <div class="ekslidervalue" id="ekslidervalue">0 %</div>
+                         <div class="ekslider">
+                         <input class="eksliderinput" type="range" id="ekinput" min="0" max="100" value="0" step="5">
+                         </div>
+                         <div class="ektext">Eigenkapital</div>
+         </div>
+         <script>
+         const slideValueek = document.querySelector(".ekslidervalue");
+         const inputSliderek = document.querySelector(".eksliderinput");
+         inputSliderek.oninput = (()=>{
+           let value = inputSliderek.value;
+           value = parseFloat(value);           
+		   let valueausek = value;
+           let gesamtinvdaten = document.getElementById("gesamtinvest").value;
+           let nkdaten = document.getElementById("nk").value;
+           gesamtinvdaten = gesamtinvdaten.replaceAll(".","");
+           gesamtinvdaten = gesamtinvdaten.replace(",",".");
+           gesamtinvdaten = parseFloat(gesamtinvdaten);
+           nkdaten = nkdaten.replace(".","");
+           nkdaten = nkdaten.replace(",",".");
+           nkdaten = parseFloat(nkdaten);           
+		   let ausekdaten = Math.round((gesamtinvdaten + nkdaten) * value / 100);
+		   document.getElementById("ekpdf").value = '<span style="color: darkorange;">' + ausekdaten.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' EUR</span>';
+		   ausekdaten = ausekdaten * -1;
+           if (ausekdaten == "-0") {
+                 ausekdaten = 0;}
+           let finbetragaus = gesamtinvdaten + nkdaten + ausekdaten;
+           if (finbetragaus < "0"){
+                 finbetragaus = 0;}
+         document.getElementById("finsum").value = finbetragaus.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+         slideValueek.textContent = valueausek + " %";
+         document.getElementById("ekaus").value = ausekdaten.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+         darlrechner();
+          });
+         </script>
+         <div class="zinssliderbox">
+                         <div class="slidervalue3" id="slidervalue3">0,00 %</div>
+                         <div class="slider3">
+                         <input class="sliderinput3" type="range" id="zinsinput" min="0" max="5" value="0" step="0.1">
+                         </div>
+                         <div class="zinstext">Zins<br/>Darlehen</div>
+         </div>
+         <script>
+         const slideValuec = document.querySelector(".slidervalue3");
+         const inputSliderc = document.querySelector(".sliderinput3");
+         inputSliderc.oninput = (()=>{
+           let value = inputSliderc.value;
+           let valueausc = parseFloat(value).toLocaleString('de-DE', { minimumFractionDigits: 2 });
+           darlrechner();
+        slideValuec.textContent = valueausc + " %";
+          });
+         </script>
+         <div class="tilgsliderbox">
+                         <div class="slidervalue4" id="slidervalue4">0,00 %</div>
+                         <div class="slider4">
+                         <input class="sliderinput4" type="range" id="tilginput" min="0" max="8" value="0" step="0.1">
+                         </div>
+                         <div class="tilgtext">Tilgung<br/>Darlehen</div>
+         </div>
+         <script>
+         const slideValued = document.querySelector(".slidervalue4");
+         const inputSliderd = document.querySelector(".sliderinput4");
+         inputSliderd.oninput = (()=>{
+           let value = inputSliderd.value;
+           let valueausd = parseFloat(value).toLocaleString('de-DE', { minimumFractionDigits: 2 });
+           darlrechner();
+        slideValued.textContent = valueausd + " %";
+          });
+         </script>
+         <div class="darllzsliderbox">
+                         <div class="slidervalue5" id="darllzslidertext">Keine</div>
+                         <div class="slider5">
+                         <input class="sliderinput5" id="darllzslider" type="range" min="0" max="30" value="0" step="1">
+                         </div>
+                         <div class="darllztext">Laufzeit<br/>Darlehen</div>
+         </div>
+         <div class="mietemonsliderbox">
+                         <div class="slidervalue6" id="slidervalue6">0,00 &#8364</div>
+                         <div class="slider6">
+                         <input class="sliderinput6" type="range" id="mietemoninput" min="0" max="8" value="0" step="0.1">
+                         </div>
+                         <div class="mietemontext">Monatsmiete<br/>EUR / m&sup2;</div>
+         </div>
+         <script>
+         const slideValuef = document.querySelector(".slidervalue6");
+         const inputSliderf = document.querySelector(".sliderinput6");
+         inputSliderf.oninput = (()=>{
+           let value = inputSliderf.value;
+           let valueausf = parseFloat(value).toLocaleString('de-DE', { minimumFractionDigits: 2 });
+           let mietemonf = document.getElementById("hallenflaeche").value;
+           let mietemonfbera = mietemonf.replace(".","");
+           let mietemonfber = mietemonfbera.replace(",",".");
+           let mietemonfberb = parseFloat(mietemonfber) * 12 * value;
+           mietemonfberb = Math.floor(mietemonfberb);
+           mietemonfberb = parseFloat(mietemonfberb);
+           let mietemonfaus = mietemonfberb.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+           let einspeisfber = document.getElementById("einspeispvpa").value;
+           einspeisfber = einspeisfber.replace(".","");
+           einspeisfber = einspeisfber.replace(",",".");
+           einspeisfber = parseFloat(einspeisfber);
+           let eingesjahrf = mietemonfberb + einspeisfber;
+           eingesjahrf = eingesjahrf.toFixed(2);
+           eingesjahrf = parseFloat(eingesjahrf);
+           let mietemonfbermtl = Math.floor(mietemonfberb / 12);
+           let pvertrfbermtl = Math.floor(einspeisfber / 12);
+           let eingesjahrfmtl = mietemonfbermtl + pvertrfbermtl;
+           eingesjahrfmtl = eingesjahrfmtl.toFixed(2);
+           let eingesjahrfaus = eingesjahrf.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+         slideValuef.textContent = valueausf + " \u20AC";
+         document.getElementById("mietepa").value = mietemonfaus;
+         document.getElementById("kalkeinpa").value = eingesjahrfaus;
+         document.getElementById("mietemtl").value = mietemonfbermtl.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+         document.getElementById("einspeispvmtl").value = pvertrfbermtl.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+         document.getElementById("kalkeinmtl").value = eingesjahrfmtl.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+         darlrechner();
+          });
+         </script>
+         <div class="mietsteigsliderbox" style="display: none;">
+                         <div class="slidervalue7" id="slidervalue7">0,00 %</div>
+                         <div class="slider7">
+                         <input class="sliderinput7" type="range" id="mietsteiginput" min="0" max="5" value="0" step="0.1">
+                         </div>
+                         <div class="mietsteigtext">Steigerung<br/>Miete</div>
+         </div>
+         <script>
+         const slideValueg = document.querySelector(".slidervalue7");
+         const inputSliderg = document.querySelector(".sliderinput7");
+         inputSliderg.oninput = (()=>{
+           let value = inputSliderg.value;
+           let valueausg = parseFloat(value).toLocaleString('de-DE', { minimumFractionDigits: 2 });
+         slideValueg.textContent = valueausg + " %";
+		 darlrechner();
+          });
+         </script>
+         <div class="einspeissatzsliderbox">
+                         <div class="slidervalue8" id="slidervalue8">0,00 ct</div>
+                         <div class="slider8">
+                         <input class="sliderinput8" type="range" id="pvertrinput" min="0" max="20" value="0" step="0.5">
+                         </div>
+                         <div class="einspeissatztext">Stromerl&ouml;s<br/>PV ct / kWh</div>
+         </div>
+         <script>
+         const slideValueh = document.querySelector(".slidervalue8");
+         const inputSliderh = document.querySelector(".sliderinput8");
+         inputSliderh.oninput = (()=>{
+           let value = inputSliderh.value;
+           let valueaush = parseFloat(value).toLocaleString('de-DE', { minimumFractionDigits: 1 });
+           let einspeish = document.getElementById("leistungpv").value;
+           let einspeishber = einspeish.replace(",",".");
+           let valueeinspeis = parseFloat(value);
+           if (value == "0") {
+           valueeinspeis = valueeinspeis;
+           valueaush = "0,00"; }
+           else {
+           valueaush = parseFloat(value); }
+           let einspeishberb = parseFloat(einspeishber) / 100 * valueeinspeis / 100 * 900 * 100;
+           einspeishberb = Math.floor(einspeishberb);
+           let einspeishaus = einspeishberb.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+           let mietemonhber = document.getElementById("mietepa").value;
+           mietemonhber = mietemonhber.replace(".","");
+           mietemonhber = mietemonhber.replace(",",".");
+           mietemonhber = parseFloat(mietemonhber);
+           let eingesjahrh = mietemonhber + einspeishberb;
+           eingesjahrh = eingesjahrh.toFixed(2);
+           eingesjahrh = parseFloat(eingesjahrh);
+           let mietemonhbermtl = Math.floor(mietemonhber / 12);
+           let pvertrhbermtl = Math.floor(einspeishberb / 12);
+           let eingesjahrhmtl = mietemonhbermtl + pvertrhbermtl;
+           let eingesjahrhaus = eingesjahrh.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+         document.getElementById("einspeispvpa").value = einspeishaus;
+         document.getElementById("kalkeinpa").value = eingesjahrhaus;
+         document.getElementById("mietemtl").value = mietemonhbermtl.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+         document.getElementById("einspeispvmtl").value = pvertrhbermtl.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+         document.getElementById("kalkeinmtl").value = eingesjahrhmtl.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+         valueaush = valueaush.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+         slideValueh.textContent = valueaush + " ct";
+         darlrechner();
+          });
+         </script>
+         <div class="sonderafasliderbox">
+                         <div class="sonderafaslidervalue" id="sonderafaslidervalue">0 Jahre</div>
+                         <div class="sonderafaslider">
+                         <input class="sonderafasliderinput" id="sonderafavalue" name="sonderafavalue" type="range" min="0" max="5" value="0" step="1">
+                         </div>
+                         <div class="sonderafatext">Sonder-AfA<br/>verteilen</div>
+         </div>
+         <script>
+         const slideValuesonderafa = document.querySelector(".sonderafaslidervalue");
+         const inputSlidersonderafa = document.querySelector(".sonderafasliderinput");
+         inputSlidersonderafa.oninput = (()=>{
+           let value = inputSlidersonderafa.value;
+         slideValuesonderafa.textContent = value + " Jahre";
+         darlrechner();
+          });
+         </script>
+         <div class="iabausw"><span>IAB: </span><input type="checkbox" id="iabjanein" name="iabjanein" onclick="iabselect();" />
+         <label for="iabjanein" id="iablabel">Nein</label>
+         </div>
+         <div class="iabhoehesliderbox" id="iabhoehesliderbox">
+                         <div class="iabhoeheslidervalue" id="iabhoeheslidervalue">0 %</div>
+                         <div class="iabhoeheslider">
+                         <input class="iabhoehesliderinput" id="iabvalue" name="iabvalue" type="range" min="0" max="50" value="0" step="5">
+                         </div>
+                         <div class="iabhoehetext" id="iabhoehetext">IAB<br/>H&ouml;he</div>
+         </div>
+         <script>
+         const slideValueiab = document.querySelector(".iabhoeheslidervalue");
+         const inputSlideriab = document.querySelector(".iabhoehesliderinput");
+         inputSlideriab.oninput = (()=>{
+           let value = inputSlideriab.value;
+         slideValueiab.textContent = value + " %";
+         darlrechner();
+          });
+         </script>
+		 <div class="verkaufbox">
+		 <div class="verkauswtext">Verkauf:</div>
+		 <div class="verkausw"><input type="checkbox" id="verkjanein" name="verkjanein" onclick="verkselect();" />
+		 <label for="verkjanein" id="verklabel">Nein</label>
+         </div>		 
+         <div class="verkaufjahresliderbox" id="verkaufjahresliderbox">
+                         <div class="verkaufjahretext">nach Jahren:</div>
+                         <div class="verkaufjahreslider">
+                         <input class="verkaufjahresliderinput" id="verkaufjahrevalue" name="verkaufjahrevalue" type="range" min="10" max="20" value="14" step="1">
+                         </div>
+                         <div class="verkaufjahreslidervalue" id="verkaufjahreslidervalue">14 Jahren</div>
+         </div>
+         <script>
+         const slideValuevkjahre = document.querySelector(".verkaufjahreslidervalue");
+         const inputSlidervkjahre = document.querySelector(".verkaufjahresliderinput");
+         inputSlidervkjahre.oninput = (()=>{
+           let value = inputSlidervkjahre.value;
+		 if (value == "1") {
+		 slideValuevkjahre.textContent = value + " Jahr";
+		 }
+		 else {
+         slideValuevkjahre.textContent = value + " Jahren";
+		 }
+         darlrechner();
+          });
+         </script>
+		 <div class="verkaufsteuersliderbox" id="verkaufsteuersliderbox" style="display: none;">
+                         <div class="verkaufsteuertext">Steuersatz:</div>
+                         <div class="verkaufsteuerslider">
+                         <input class="verkaufsteuersliderinput" id="verkaufsteuervalue" name="verkaufsteuervalue" type="range" min="0" max="42" value="0" step="1">
+                         </div>
+                         <div class="verkaufsteuerslidervalue" id="verkaufsteuerslidervalue">0 %</div>
+         </div>
+         <script>
+         const slideValuevksteuer = document.querySelector(".verkaufsteuerslidervalue");
+         const inputSlidervksteuer = document.querySelector(".verkaufsteuersliderinput");
+         inputSlidervksteuer.oninput = (()=>{
+           let value = inputSlidervksteuer.value;		 
+         slideValuevksteuer.textContent = value + " %";
+         darlrechner();
+          });
+         </script>
+		 <div class="verkaufeksliderbox" id="verkaufeksliderbox" style="display: none;">
+                         <div class="verkaufektext">Eigenkapital:</div>
+                         <div class="verkaufekslider">
+                         <input class="verkaufeksliderinput" id="verkaufekvalue" name="verkaufekvalue" type="range" min="0" max="100" value="0" step="5">
+                         </div>
+                         <div class="verkaufekslidervalue" id="verkaufekslidervalue">0 %</div>
+         </div>
+         <script>
+         const slideValueverkek = document.querySelector(".verkaufekslidervalue");
+         const inputSliderverkek = document.querySelector(".verkaufeksliderinput");
+         inputSliderverkek.oninput = (()=>{
+           let value = inputSliderverkek.value;
+           value = parseFloat(value);
+           let valueausverkek = value;           
+		   let gesamtinvdaten2 = 0;
+           let nkdaten2 = 0;
+		   let verksel = document.getElementById("verkjanein").checked;
+	       if (verksel == true)
+           {
+		   gesamtinvdaten2 = document.getElementById("gesamtinvest2").value;
+           nkdaten2 = document.getElementById("nk2").value;
+		   gesamtinvdaten2 = gesamtinvdaten2.replaceAll(".","");
+		   gesamtinvdaten2 = gesamtinvdaten2.replace(",",".");
+		   nkdaten2 = nkdaten2.replace(".","");
+           nkdaten2 = nkdaten2.replace(",",".");
+		   }		   
+           gesamtinvdaten2 = parseFloat(gesamtinvdaten2);
+		   nkdaten2 = parseFloat(nkdaten2);
+		   let ausekdaten2 = Math.round((gesamtinvdaten2 + nkdaten2) * value / 100);
+           ausekdaten2 = ausekdaten2 * -1;		   
+		   if (ausekdaten2 == "-0") {
+                 ausekdaten2 = 0;}
+           let finbetragaus2 = gesamtinvdaten2 + nkdaten2 + ausekdaten2;
+           if (finbetragaus2 < "0"){
+                 finbetragaus2 = 0;}		 
+		 if (verksel == true)
+		 {
+		 document.getElementById("finsum2").value = finbetragaus2.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+		 document.getElementById("ekaus2").value = ausekdaten2.toLocaleString('de-DE', { minimumFractionDigits: 2 });
+		 }
+		 slideValueverkek.textContent = valueausverkek + " %";
+		 darlrechner();
+          });
+         </script>
+		 
+		 
+		 
+		 <div class="verkaufzinssliderbox" id="verkaufzinssliderbox" style="display: none;">
+                         <div class="verkaufzinstext">Zins Darl.:</div>
+                         <div class="verkaufzinsslider">
+                         <input class="verkaufzinssliderinput" id="verkaufzinsvalue" name="verkaufzinsvalue" type="range" min="0" max="4.5" value="1.5" step="0.1">
+                         </div>
+                         <div class="verkaufzinsslidervalue" id="verkaufzinsslidervalue">1,50 %</div>
+         </div>
+         <script>
+         const slideValueverkzins = document.querySelector(".verkaufzinsslidervalue");
+         const inputSliderverkzins = document.querySelector(".verkaufzinssliderinput");
+         inputSliderverkzins.oninput = (()=>{
+           let value = inputSliderverkzins.value;
+           let valueausverkzins = parseFloat(value).toLocaleString('de-DE', { minimumFractionDigits: 2 });
+           darlrechner();
+        slideValueverkzins.textContent = valueausverkzins + " %";
+          });
+         </script>
+		<div class="verkauftilgsliderbox" id="verkauftilgsliderbox" style="display: none;">
+                         <div class="verkauftilgtext">Tilgung Darl.:</div>
+                         <div class="verkauftilgslider">
+                         <input class="verkauftilgsliderinput" id="verkauftilgvalue" name="verkauftilgvalue" type="range" min="0" max="6" value="3.4" step="0.1">
+                         </div>
+                         <div class="verkauftilgslidervalue" id="verkauftilgslidervalue">3,40 %</div>
+         </div>
+         <script>
+         const slideValueverktilg = document.querySelector(".verkauftilgslidervalue");
+         const inputSliderverktilg = document.querySelector(".verkauftilgsliderinput");
+         inputSliderverktilg.oninput = (()=>{
+           let value = inputSliderverktilg.value;
+           let valueausverktilg = parseFloat(value).toLocaleString('de-DE', { minimumFractionDigits: 2 });
+           darlrechner();
+        slideValueverktilg.textContent = valueausverktilg + " %";
+          });
+         </script> 
+		 <div class="grid1_vkheader" id="grid1_vkheader">
+		 <div class="vkheader">Verkaufspreise</div>
+		 </div>
+	<div class="grid1_vk" id="grid1_vk">
+		 <div class="verkaufgrdstpreissliderbox" id="verkaufgrdstpreissliderbox">
+                         <div class="verkaufgrdstpreistext">Grundst&uuml;ck:</div>
+                         <div class="verkaufgrdstpreisslider">
+                         <input class="verkaufgrdstpreissliderinput" id="verkaufgrdstpreisvalue" name="verkaufgrdstpreisvalue" type="range" min="50" max="150" value="100" step="5">
+                         </div>
+                         <div class="verkaufgrdstpreisslidervalue" id="verkaufgrdstpreisslidervalue">100 %</div>
+         </div>
+         <script>
+         const slideValuevkgrdstpreis = document.querySelector(".verkaufgrdstpreisslidervalue");
+         const inputSlidervkgrdstpreis = document.querySelector(".verkaufgrdstpreissliderinput");
+         inputSlidervkgrdstpreis.oninput = (()=>{
+           let value = inputSlidervkgrdstpreis.value;		 
+         slideValuevkgrdstpreis.textContent = value + " %";
+         objektdaten();
+          });
+         </script>
+		 <div class="verkaufhallepreissliderbox" id="verkaufhallepreissliderbox">
+                         <div class="verkaufhallepreistext">Halle(n):</div>
+                         <div class="verkaufhallepreisslider">
+                         <input class="verkaufhallepreissliderinput" id="verkaufhallepreisvalue" name="verkaufhallepreisvalue" type="range" min="50" max="150" value="100" step="5">
+                         </div>
+                         <div class="verkaufhallepreisslidervalue" id="verkaufhallepreisslidervalue">100 %</div>
+         </div>
+         <script>
+         const slideValuevkhallepreis = document.querySelector(".verkaufhallepreisslidervalue");
+         const inputSlidervkhallepreis = document.querySelector(".verkaufhallepreissliderinput");
+         inputSlidervkhallepreis.oninput = (()=>{
+           let value = inputSlidervkhallepreis.value;		 
+         slideValuevkhallepreis.textContent = value + " %";
+         objektdaten();
+          });
+         </script>
+		 <div class="verkaufpvpreissliderbox" id="verkaufpvpreissliderbox">
+                         <div class="verkaufpvpreistext">PV:</div>
+                         <div class="verkaufpvpreisslider">
+                         <input class="verkaufpvpreissliderinput" id="verkaufpvpreisvalue" name="verkaufpvpreisvalue" type="range" min="0" max="100" value="50" step="5">
+                         </div>
+                         <div class="verkaufpvpreisslidervalue" id="verkaufpvpreisslidervalue">50 %</div>
+         </div>
+         <script>
+         const slideValuevkpvpreis = document.querySelector(".verkaufpvpreisslidervalue");
+         const inputSlidervkpvpreis = document.querySelector(".verkaufpvpreissliderinput");
+         inputSlidervkpvpreis.oninput = (()=>{
+           let value = inputSlidervkpvpreis.value;		 
+         slideValuevkpvpreis.textContent = value + " %";
+         objektdaten();
+          });
+         </script>
+	</div>
+	</div>
+</div>
+<div class="grid7">
+         <div class="zusammenfasstext" id="zusammenfasstext">Zusammenfassung</br>nach 14 Jahren</div>
+         <div class="zusamdettext" id="zusamdettext">Bitte Daten komplett eingeben.</div>
+     </div>
+</div>
+<div class="grid12">
+         <div class="liquinachsttext" id="liquinachsttext">&Uuml;berschuss / Aufwand nach Steuern pro Monat (ca.):</div>
+         <div class="liquinachstdiv1" id="liquinachstdiv1">
+         <div class="liquinachstvjtext">Im Jahr vor Anschaffung:</div>
+         <div class="liquinachstvjval"><input type="text" id="liquinachstvj" name="liquinachstvj" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst1text">Im Erwerbsjahr:</div>
+         <div class="liquinachst1val"><input type="text" id="liquinachst1" name="liquinachst1" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst2text">Im 2. Jahr:</div>
+         <div class="liquinachst2val"><input type="text" id="liquinachst2" name="liquinachst2" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst3text">Im 3. Jahr:</div>
+         <div class="liquinachst3val"><input type="text" id="liquinachst3" name="liquinachst3" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst4text">Im 4. Jahr:</div>
+         <div class="liquinachst4val"><input type="text" id="liquinachst4" name="liquinachst4" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst5text">Im 5. Jahr:</div>
+         <div class="liquinachst5val"><input type="text" id="liquinachst5" name="liquinachst5" value="0,00" readonly /><span> &#8364</span></div>
+         </div>
+         <div class="liquinachstdiv2" id="liquinachstdiv2">
+         <div class="liquinachst6text">Im 6. Jahr:</div>
+         <div class="liquinachst6val"><input type="text" id="liquinachst6" name="liquinachst6" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst7text">Im 7. Jahr:</div>
+         <div class="liquinachst7val"><input type="text" id="liquinachst7" name="liquinachst7" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst8text">Im 8. Jahr:</div>
+         <div class="liquinachst8val"><input type="text" id="liquinachst8" name="liquinachst8" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst9text">Im 9. Jahr:</div>
+         <div class="liquinachst9val"><input type="text" id="liquinachst9" name="liquinachst9" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst10text">Im 10. Jahr:</div>
+         <div class="liquinachst10val"><input type="text" id="liquinachst10" name="liquinachst10" value="0,00" readonly /><span> &#8364</span></div>
+         </div>
+         <div class="liquinachstdiv3" id="liquinachstdiv3">
+         <div class="liquinachst11text">Im 11. Jahr:</div>
+         <div class="liquinachst11val"><input type="text" id="liquinachst11" name="liquinachst11" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst12text">Im 12. Jahr:</div>
+         <div class="liquinachst12val"><input type="text" id="liquinachst12" name="liquinachst12" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst13text">Im 13. Jahr:</div>
+         <div class="liquinachst13val"><input type="text" id="liquinachst13" name="liquinachst13" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst14text">Im 14. Jahr:</div>
+         <div class="liquinachst14val"><input type="text" id="liquinachst14" name="liquinachst14" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst15text">Im 15. Jahr:</div>
+         <div class="liquinachst15val"><input type="text" id="liquinachst15" name="liquinachst15" value="0,00" readonly /><span> &#8364</span></div>
+         </div>
+         <div class="liquinachstdiv4" id="liquinachstdiv4">
+         <div class="liquinachst16text">Im 16. Jahr:</div>
+         <div class="liquinachst16val"><input type="text" id="liquinachst16" name="liquinachst16" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst17text">Im 17. Jahr:</div>
+         <div class="liquinachst17val"><input type="text" id="liquinachst17" name="liquinachst17" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst18text">Im 18. Jahr:</div>
+         <div class="liquinachst18val"><input type="text" id="liquinachst18" name="liquinachst18" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst19text">Im 19. Jahr:</div>
+         <div class="liquinachst19val"><input type="text" id="liquinachst19" name="liquinachst19" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst20text">Im 20. Jahr:</div>
+         <div class="liquinachst20val"><input type="text" id="liquinachst20" name="liquinachst20" value="0,00" readonly /><span> &#8364</span></div>
+         </div>
+         <div class="liquinachstdiv5" id="liquinachstdiv5">
+         <div class="liquinachst21text">Im 21. Jahr:</div>
+         <div class="liquinachst21val"><input type="text" id="liquinachst21" name="liquinachst21" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst22text">Im 22. Jahr:</div>
+         <div class="liquinachst22val"><input type="text" id="liquinachst22" name="liquinachst22" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst23text">Im 23. Jahr:</div>
+         <div class="liquinachst23val"><input type="text" id="liquinachst23" name="liquinachst23" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst24text">Im 24. Jahr:</div>
+         <div class="liquinachst24val"><input type="text" id="liquinachst24" name="liquinachst24" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst25text">Im 25. Jahr:</div>
+         <div class="liquinachst25val"><input type="text" id="liquinachst25" name="liquinachst25" value="0,00" readonly /><span> &#8364</span></div>
+         </div>
+         <div class="liquinachstdiv6" id="liquinachstdiv6">
+         <div class="liquinachst26text">Im 26. Jahr:</div>
+         <div class="liquinachst26val"><input type="text" id="liquinachst26" name="liquinachst26" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst27text">Im 27. Jahr:</div>
+         <div class="liquinachst27val"><input type="text" id="liquinachst27" name="liquinachst27" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst28text">Im 28. Jahr:</div>
+         <div class="liquinachst28val"><input type="text" id="liquinachst28" name="liquinachst28" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst29text">Im 29. Jahr:</div>
+         <div class="liquinachst29val"><input type="text" id="liquinachst29" name="liquinachst29" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="liquinachst30text">Im 30. Jahr:</div>
+         <div class="liquinachst30val"><input type="text" id="liquinachst30" name="liquinachst30" value="0,00" readonly /><span> &#8364</span></div>
+         </div>
+</div>
+<div class="gridchart">
+<div class="grid9">
+<div id="curve_chart1"></div>
+</div>
+<div class="grid10">
+<div id="curve_chart2"></div>
+</div>
+<div class="grid11">
+<div id="curve_chart3"></div>
+</div>
+</div>
+<div class="grid4_7">
+     <div class="grid4">
+         <div class="einnahmen">Einnahmen</div>
+         <div class="einnahmmtl">monatlich</div>
+         <div class="einnahmpa">j&auml;hrlich</div>
+         <div class="einnahm30"></div>
+         <div class="mietetext">Mieteinnahmen (ca.):</div>
+         <div class="mietemtl"><input type="text" id="mietemtl" name="mietemtl" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="mietepa"><input type="text" id="mietepa" name="mietepa" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="miete30"><input type="text" id="miete30" name="miete30" value="" readonly /></div>
+         <div class="einspeispvtext">Verg&uuml;tung Photovoltaik (ca.):</div>
+         <div class="einspeispvmtl"><input type="text" id="einspeispvmtl" name="einspeispvmtl" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="einspeispvpa"><input type="text" id="einspeispvpa" name="einspeispvpa" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="einspeispv30"><input type="text" id="einspeispv30" name="einspeispv30" value="" readonly /></div>
+         <div class="kalkeintext">Gesamteinnahmen (ca.):</div>
+         <div class="kalkeinmtl"><input type="text" id="kalkeinmtl" name="kalkeinmtl" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="kalkeinpa"><input type="text" id="kalkeinpa" name="kalkeinpa" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="kalkein30"><input type="text" id="kalkein30" name="kalkein30" value="" readonly /></div>
+         <div class="ausgaben">Ausgaben</div>
+         <div class="ausgmtl">monatlich</div>
+         <div class="ausgpa">j&auml;hrlich</div>
+         <div class="ausg30"></div>
+         <div class="pvnebentext">Techn.+ Kfm. Betreuung (ca.):</div>
+         <div class="pvnebenmtl"><input type="text" id="pvnebenmtl" name="pvnebenmtl" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="pvnebenpa"><input type="text" id="pvnebenpa" name="pvnebenpa" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="pvneben30"><input type="text" id="pvneben30" name="pvneben30" value="" readonly /></div>
+         <div class="darlratetext">Darlehensrate (ca.):</div>
+         <div class="darlratemtl"><input type="text" id="darlratemtl" name="darlratemtl" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="darlratepa"><input type="text" id="darlratepa" name="darlratepa" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="darlrate30"><input type="text" id="darlrate30" name="darlrate30" value="" readonly /></div>
+         <div class="kalkaustext">Gesamtausgaben (ca.):</div>
+         <div class="kalkausmtl"><input type="text" id="kalkausmtl" name="kalkausmtl" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="kalkauspa"><input type="text" id="kalkauspa" name="kalkauspa" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="kalkaus30"><input type="text" id="kalkaus30" name="kalkaus30" value="" readonly /></div>
+         <div class="steuerausw">steuerliche Auswirkung in den n&auml;chsten 14 Jahren</div>
+         <div class="steuervorttext">Steuervorteil &#248 (ca.):</div>
+         <div class="steuervortmtl"><input type="text" id="steuervortmtl" name="steuervortmtl" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="steuervortpa"><input type="text" id="steuervortpa" name="steuervortpa" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="steuervort30"><input type="text" id="steuervort30" name="steuervort30" value="" readonly /></div>
+         <div class="steuernachtext">Steuerzahlung &#248 (ca.):</div>
+         <div class="steuernachmtl"><input type="text" id="steuernachmtl" name="steuernachmtl" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="steuernachpa"><input type="text" id="steuernachpa" name="steuernachpa" value="0,00" readonly /><span> &#8364</span></div>
+         <div class="steuernach30"><input type="text" id="steuernach30" name="steuernach30" value="" readonly /></div>
+     </div>
+</div>
+</br>
+<div class="grid6">
+<div class="grid6header">Zahlen aus Berechnungstool - NUR ZUR KONTROLLE ! - </div>
+<div class="annu1daten">Annuit&auml;t Erwerbsjahr: <input type="text" id="annu1" name="annu1" value="0,00" readonly /><span> &#8364</span></div>
+<div class="annudaten">Annuit&auml;t Folgejahre: <input type="text" id="annu" name="annu" value="0,00" readonly /><span> &#8364</span></div>
+<div class="darlverl5">Darlehenssaldo nach 5 Jahren: <input type="text" id="darlverl5" name="darlverl5" value="0,00" readonly /><span> &#8364</span></div>
+<div class="zinsverl5">Zinsanteil nach 5 Jahren: <input type="text" id="zinsverl5" name="zinsverl5" value="0,00" readonly /><span> &#8364</span></div>
+<div class="tilgverl5">Tilgungsanteil nach 5 Jahren: <input type="text" id="tilgverl5" name="tilgverl5" value="0,00" readonly /><span> &#8364</span></div>
+<div class="darlverl10">Darlehenssaldo nach 10 Jahren: <input type="text" id="darlverl10" name="darlverl10" value="0,00" readonly /><span> &#8364</span></div>
+<div class="zinsverl10">Zinsanteil nach 10 Jahren: <input type="text" id="zinsverl10" name="zinsverl10" value="0,00" readonly /><span> &#8364</span></div>
+<div class="tilgverl10">Tilgungsanteil nach 10 Jahren: <input type="text" id="tilgverl10" name="tilgverl10" value="0,00" readonly /><span> &#8364</span></div>
+<div class="darlverl20">Darlehenssaldo nach 20 Jahren: <input type="text" id="darlverl20" name="darlverl20" value="0,00" readonly /><span> &#8364</span></div>
+<div class="zinsverl20">Zinsanteil nach 20 Jahren: <input type="text" id="zinsverl20" name="zinsverl20" value="0,00" readonly /><span> &#8364</span></div>
+<div class="tilgverl20">Tilgungsanteil nach 20 Jahren: <input type="text" id="tilgverl20" name="tilgverl20" value="0,00" readonly /><span> &#8364</span></div>
+<div class="darlverl30">Darlehenssaldo nach 30 Jahren: <input type="text" id="darlverl30" name="darlverl30" value="0,00" readonly /><span> &#8364</span></div>
+<div class="zinsverl30">Zinsanteil nach 30 Jahren: <input type="text" id="zinsverl30" name="zinsverl30" value="0,00" readonly /><span> &#8364</span></div>
+<div class="tilgverl30">Tilgungsanteil nach 30 Jahren: <input type="text" id="tilgverl30" name="tilgverl30" value="0,00" readonly /><span> &#8364</span></div>
+<div class="liquivorst1">&Uuml;berschuss vor Steuern Erwerbsjahr: <input type="text" id="liquivorst1" name="liquivorst1" value="0,00" readonly /><span> &#8364</span></div>
+<div class="liquivorst10">&Uuml;berschuss vor Steuern Folgejahre: <input type="text" id="liquivorst10" name="liquivorst10" value="0,00" readonly /><span> &#8364</span></div>
+<div class="umssteuerrel1">Steuerrel. Ums&auml;tze im Erwerbsjahr: <input type="text" id="umssteuerrel1" name="umssteuerrel1" value="0,00" readonly /><span> &#8364</span></div>
+<div class="umssteuerrel2">Steuerrel. Ums&auml;tze im 1. Jahr: <input type="text" id="umssteuerrel2" name="umssteuerrel2" value="0,00" readonly /><span> &#8364</span></div>
+<div class="umssteuerrel5">Steuerrel. Ums&auml;tze im 5. Jahr: <input type="text" id="umssteuerrel5" name="umssteuerrel5" value="0,00" readonly /><span> &#8364</span></div>
+<div class="umssteuerrel10">Steuerrel. Ums&auml;tze im 10. Jahr: <input type="text" id="umssteuerrel10" name="umssteuerrel10" value="0,00" readonly /><span> &#8364</span></div>
+<div class="umssteuerrel20">Steuerrel. Ums&auml;tze im 20. Jahr: <input type="text" id="umssteuerrel20" name="umssteuerrel20" value="0,00" readonly /><span> &#8364</span></div>
+<div class="umssteuerrel30">Steuerrel. Ums&auml;tze im 30. Jahr: <input type="text" id="umssteuerrel30" name="umssteuerrel30" value="0,00" readonly /><span> &#8364</span></div>
+<div class="afapvausg1">AfA PV im Erwerbsjahr: <input type="text" id="afapv1" name="afapv1" value="0,00" readonly /><span> &#8364</span></div>
+<div class="afapvausg2">AfA PV nach 2 Jahren: <input type="text" id="afapv2" name="afapv2" value="0,00" readonly /><span> &#8364</span></div>
+<div class="afapvausg3">AfA PV nach 3 Jahren: <input type="text" id="afapv3" name="afapv3" value="0,00" readonly /><span> &#8364</span></div>
+<div class="afapvausg4">AfA PV nach 4 Jahren: <input type="text" id="afapv4" name="afapv4" value="0,00" readonly /><span> &#8364</span></div>
+<div class="afapvausg5">AfA PV nach 5 Jahren: <input type="text" id="afapv5" name="afapv5" value="0,00" readonly /><span> &#8364</span></div>
+<div class="afapvausg6">AfA PV 6. - 20. Jahr: <input type="text" id="afapv6" name="afapv6" value="0,00" readonly /><span> &#8364</span></div>
+<div class="iabpv">IAB f&uuml;r PV im Jahr vor Anschaffung: <input type="text" id="iabpv" name="iabpv" value="0,00" readonly /><span> &#8364</span></div>
+<div class="afahalleausg1">AfA Halle(n) im Erwerbsjahr: <input type="text" id="afahalle1" name="afahalle1" value="0,00" readonly /><span> &#8364</span></div>
+<div class="afahalleausg5">AfA Halle(n) nach 15 Jahren: <input type="text" id="afahalle15" name="afahalle15" value="0,00" readonly /><span> &#8364</span></div>
+<div class="steueriab">Steuervorteil Jahr vor Anschaffung: <input type="text" id="steueriab" name="steueriab" value="0,00" readonly /><span> &#8364</span></div>
+<div class="steuer1">Steuervorteil im Erwerbsjahr: <input type="text" id="steuer1" name="steuer1" value="0,00" readonly /><span> &#8364</span></div>
+<div class="steuer2">Steuervorteil im 1. Jahr: <input type="text" id="steuer2" name="steuer2" value="0,00" readonly /><span> &#8364</span></div>
+<div class="steuer5">Steuervorteil im 5. Jahr: <input type="text" id="steuer5" name="steuer5" value="0,00" readonly /><span> &#8364</span></div>
+<div class="steuer10">Steuervorteil im 10. Jahr: <input type="text" id="steuer10" name="steuer10" value="0,00" readonly /><span> &#8364</span></div>
+<div class="steuer20">Steuervorteil im 20. Jahr: <input type="text" id="steuer20" name="steuer20" value="0,00" readonly /><span> &#8364</span></div>
+<div class="steuer30">Steuervorteil im 30. Jahr: <input type="text" id="steuer30" name="steuer30" value="0,00" readonly /><span> &#8364</span></div>
+</div>
+<div class="disclaimer">
+<div class="disclaimerheader">Hinweis:</div>
+<div class="disclaimertext">
+	Die vorstehenden Ausf&uuml;hrungen dienen der Orientierung. Diese Ausf&uuml;hrungen und Berechnungen erheben keinen Anspruch auf Vollst&auml;ndigkeit. Sie sind unverbindlich 
+	und erfolgen nach bestem Wissen und Gewissen. Sie basieren auf subjektiven Bewertungen und ber&uuml;cksichtigen den derzeitigen Kenntnisstand sowie die derzeitige Gesetzeslage.<br/>
+	Die Berechnungen sind als reine Orientierung zu sehen und beanspruchen keine absolute Gew&auml;hr. Sie ersetzen keine ausf&uuml;hrliche Beratung.<br/>
+	Es wurden bestimmte Annahmen getroffen, die von den tats&auml;chlichen Gegebenheiten abweichen k&ouml;nnen und h&ouml;chst wahrscheinlich auch abweichen werden.<br/>
+	Von daher wird eine Haftung, mit Ausnahme einer solchen wegen Vorsatzes oder grober Fahrl&auml;ssigkeit, f&uuml;r jegliche Sch&auml;den, insbesondere auch mittelbare oder Folgesch&auml;den 
+	gegen&uuml;ber dem Benutzer der Software sowie gegen&uuml;ber Dritten ausgeschlossen.<br/>
+	Die steuerrechtlichen Auswirkungen basieren auf dem bei Erstellung des Beratungsprogramms bekannten Steuerrecht, erheben aber nicht den Anspruch auf Vollst&auml;ndigkeit in allen 
+	steuerlichen Belangen. Alle steuerlichen Hinweise auf dieser Auswertung stellen keine Steuerberatung dar. Es handelt sich lediglich um Anregungen, die auf keinen Fall eine 
+	qualifizierte und individuelle Beratung durch Ihren Steuerberater ersetzen. F&uuml;r unerw&uuml;nschte steuerliche Folgen wird daher ausdr&uuml;cklich keine Haftung &uuml;bernommen.<br/>
+	Im Rahmen der Einkommensteuerveranlagung kann es zu Abweichungen kommen. In Steuerfragen wenden Sie sich bitte an Ihren Steuerberater.
+</div>
+</div>
+</div>
+</form>
+<script>    
+    window.onload = buttonreset();	
+</script>
+</body>
+</html>
